@@ -1,10 +1,12 @@
 "use client";
 
-import { AnimatePresence, LazyMotion, MotionConfig, domAnimation, m } from "motion/react";
+import { AnimatePresence, LazyMotion, MotionConfig, m } from "motion/react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import type { ProgramDay } from "@/content";
 import { formatMinutes } from "@/lib/format";
+
+const loadFeatures = () => import("./motion-features").then((mod) => mod.default);
 
 /** Timeline of both days. Each block opens on click — movement only in response to an action. */
 export function ProgramDays({ days }: { days: ProgramDay[] }) {
@@ -12,7 +14,7 @@ export function ProgramDays({ days }: { days: ProgramDay[] }) {
   const [open, setOpen] = useState<string | null>(null);
 
   return (
-    <LazyMotion features={domAnimation} strict>
+    <LazyMotion features={loadFeatures} strict>
       <MotionConfig reducedMotion="user">
         <div className="space-y-14">
           {days.map((day) => {

@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect } from "react";
 import { useForm, type FieldError } from "react-hook-form";
-import type { z } from "zod";
+import type * as z from "zod/mini";
 import type { Group } from "@/content";
 import { formatDateRange } from "@/lib/format";
 import {

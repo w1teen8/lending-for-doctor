@@ -1,24 +1,24 @@
-import { z } from "zod";
+import * as z from "zod/mini";
 
 // One schema for the browser and for the lead endpoint (worker/lead.ts).
-// Error messages are keys into messages/<locale>.json → form.errors.
+// zod/mini keeps the client bundle small. Error messages are keys into
+// messages/<locale>.json → form.errors.
 
-const name = z.string().trim().min(2, { error: "name" }).max(80, { error: "name" });
+const name = z.string().check(z.trim(), z.minLength(2, { error: "name" }), z.maxLength(80, { error: "name" }));
 
 const phone = z
   .string()
-  .trim()
-  .refine((v) => /^\+[1-9]\d{9,14}$/.test(normalizePhone(v)), { error: "phone" });
+  .check(z.trim(), z.refine((v) => /^\+[1-9]\d{9,14}$/.test(normalizePhone(v)), { error: "phone" }));
 
-const comment = z.string().trim().max(500, { error: "comment" });
+const comment = z.string().check(z.trim(), z.maxLength(500, { error: "comment" }));
 
-const consent = z.boolean().refine((v) => v, { error: "consent" });
+const consent = z.boolean().check(z.refine((v) => v, { error: "consent" }));
 
 export const courseLeadSchema = z.object({
   type: z.literal("course"),
   name,
   phone,
-  group: z.string().min(1, { error: "group" }).max(64),
+  group: z.string().check(z.minLength(1, { error: "group" }), z.maxLength(64)),
   comment,
   consent,
 });
@@ -38,15 +38,11 @@ export const waitlistLeadSchema = z.object({
   type: z.literal("waitlist"),
   name,
   phone,
-  group: z.string().min(1).max(64),
+  group: z.string().check(z.minLength(1), z.maxLength(64)),
   consent,
 });
 
-export const leadSchema = z.discriminatedUnion("type", [
-  courseLeadSchema,
-  consultationLeadSchema,
-  waitlistLeadSchema,
-]);
+export const leadSchema = z.discriminatedUnion("type", [courseLeadSchema, consultationLeadSchema, waitlistLeadSchema]);
 
 export type CourseLead = z.infer<typeof courseLeadSchema>;
 export type ConsultationLead = z.infer<typeof consultationLeadSchema>;
