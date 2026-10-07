@@ -21,14 +21,14 @@ export function Hero({ hero }: { hero: SiteContent["hero"] }) {
       />
       <div className="absolute inset-0 -z-10 bg-ink/80 lg:bg-ink/70" />
 
-      <div className="shell flex min-h-svh flex-col justify-between gap-6 py-4 lg:min-h-[calc(100svh-4rem)] lg:py-14">
+      <div className="shell flex min-h-svh flex-col justify-between gap-4 py-3 lg:min-h-[calc(100svh-4rem)] lg:py-14">
         {site.isConcept ? (
-          <p className="text-[0.8125rem] leading-snug text-muted-on-ink lg:hidden">{t("common.concept")}</p>
+          <p className="text-xs leading-snug text-muted-on-ink lg:hidden">{t("common.concept")}</p>
         ) : (
           <span />
         )}
 
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_21rem] lg:items-end lg:gap-12">
+        <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_21rem] lg:items-end lg:gap-12">
           <div>
             <p className="label hidden text-muted-on-ink lg:block">{hero.eyebrow}</p>
             <h1 id="hero-title" className="display lg:mt-6">
@@ -39,8 +39,8 @@ export function Hero({ hero }: { hero: SiteContent["hero"] }) {
                 {hero.titleRest}
               </span>
             </h1>
-            <p className="mt-4 text-base measure text-paper/90 sm:text-lg">{hero.subtitle}</p>
-            <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-6">
+            <p className="mt-3 text-base measure text-paper/90 sm:text-lg">{hero.subtitle}</p>
+            <div className="mt-5 flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-6">
               <a href="#zapys" className="btn btn-primary text-lg">
                 {t("cta.book")}
               </a>
@@ -50,13 +50,13 @@ export function Hero({ hero }: { hero: SiteContent["hero"] }) {
             </div>
           </div>
 
-          <div className="tone-paper order-first flex items-start gap-4 p-4 lg:order-none lg:block lg:p-6">
-            <p className="display shrink-0 text-5xl text-signal lg:text-8xl">
+          <div className="tone-paper order-first flex items-start gap-3 p-3 lg:order-none lg:block lg:p-6">
+            <p className="display shrink-0 text-[2.75rem] text-signal lg:text-8xl">
               <Counter seconds={hero.counter.seconds} id="hero-counter" />
               <span className="sr-only">{hero.counter.srText}</span>
             </p>
             <script dangerouslySetInnerHTML={{ __html: counterResetScript("hero-counter") }} />
-            <p className="text-sm leading-snug lg:mt-4 lg:text-base">{hero.counter.caption}</p>
+            <p className="text-[0.8125rem] leading-snug lg:mt-4 lg:text-base">{hero.counter.caption}</p>
           </div>
         </div>
       </div>

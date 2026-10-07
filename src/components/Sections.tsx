@@ -1,7 +1,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import type { Content } from "@/content";
-import { site } from "@/lib/site";
+import { cn, site } from "@/lib/site";
 import { ChooseGroupButton } from "./forms/booking-context";
 import { ConsultationForm, CourseForm } from "./forms/LeadForms";
 import { GroupsTable } from "./GroupsTable";
@@ -101,11 +101,18 @@ export function Consultation({ data }: { data: Content["site"]["consultation"] }
             ))}
           </ol>
 
-          <dl className="mt-10 grid grid-cols-3 border-y border-rule">
+          <dl className="mt-10 grid border-y border-rule sm:grid-cols-3">
             {data.facts.map((f, i) => (
-              <div key={f.label} className={i > 0 ? "border-l border-rule py-4 pl-4" : "py-4 pr-4"}>
+              <div
+                key={f.label}
+                className={cn(
+                  "flex items-baseline justify-between gap-4 py-3 sm:block sm:py-4",
+                  i > 0 && "border-t border-rule sm:border-t-0 sm:border-l sm:pl-4",
+                  i < data.facts.length - 1 && "sm:pr-4",
+                )}
+              >
                 <dt className="label text-subtle">{f.label}</dt>
-                <dd className="display mt-2 text-xl [font-stretch:110%] md:text-2xl">{f.value}</dd>
+                <dd className="display text-xl [font-stretch:110%] sm:mt-2 md:text-2xl">{f.value}</dd>
               </div>
             ))}
           </dl>
