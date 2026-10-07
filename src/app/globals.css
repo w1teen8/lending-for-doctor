@@ -1,0 +1,240 @@
+@import "tailwindcss";
+
+/* Palette from the brief: five values. The two muted-* text variants exist only to reach
+   4.5:1 for small text — #7a837f on paper is 3.3:1, so it stays for rules and dividers. */
+@theme {
+  --color-ink: #111a1c;
+  --color-paper: #e9ebe6;
+  --color-surgical: #17514f;
+  --color-signal: #c1272d;
+  --color-muted: #7a837f;
+  --color-muted-on-paper: #5c6561;
+  --color-muted-on-ink: #9aa39f;
+
+  --font-display: var(--font-display-face), "Arial", system-ui, sans-serif;
+  --font-serif: var(--font-serif-face), "Georgia", "Times New Roman", serif;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    background: var(--color-ink);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-serif);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  :focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 3px;
+  }
+
+  [id] {
+    scroll-margin-top: 5rem;
+  }
+
+  ::selection {
+    background: var(--color-surgical);
+    color: var(--color-paper);
+  }
+}
+
+@layer components {
+  /* Section tones set the colour of secondary text and rules for everything inside. */
+  .tone-paper {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    --subtle: var(--color-muted-on-paper);
+    --rule: color-mix(in srgb, var(--color-muted) 55%, transparent);
+  }
+  .tone-ink {
+    background: var(--color-ink);
+    color: var(--color-paper);
+    --subtle: var(--color-muted-on-ink);
+    --rule: color-mix(in srgb, var(--color-muted) 45%, transparent);
+  }
+  .tone-surgical {
+    background: var(--color-surgical);
+    color: var(--color-paper);
+    --subtle: var(--color-paper);
+    --rule: color-mix(in srgb, var(--color-paper) 35%, transparent);
+  }
+
+  .text-subtle {
+    color: var(--subtle);
+  }
+  .border-rule {
+    border-color: var(--rule);
+  }
+
+  .shell {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 82rem;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 768px) {
+    .shell {
+      padding-inline: 2rem;
+    }
+  }
+
+  .display {
+    font-family: var(--font-display);
+    font-stretch: 125%;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+
+  .h2 {
+    font-family: var(--font-display);
+    font-stretch: 125%;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+    font-size: clamp(2rem, 1.4rem + 2.6vw, 3.5rem);
+    text-wrap: balance;
+  }
+
+  .h3 {
+    font-family: var(--font-display);
+    font-stretch: 115%;
+    font-weight: 650;
+    line-height: 1.2;
+    font-size: 1.25rem;
+  }
+
+  .label {
+    font-family: var(--font-display);
+    font-stretch: 110%;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .measure {
+    max-width: 68ch;
+  }
+
+  .tnum {
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2px;
+    font-family: var(--font-display);
+    font-stretch: 112%;
+    font-weight: 650;
+    font-size: 1rem;
+    line-height: 1.2;
+    text-align: center;
+    cursor: pointer;
+  }
+  .btn:disabled {
+    cursor: progress;
+    opacity: 0.7;
+  }
+
+  /* The only red control on the page: the main action. */
+  .btn-primary {
+    min-height: 56px;
+    background: var(--color-signal);
+    color: var(--color-paper);
+  }
+  .btn-primary:hover {
+    background: var(--color-ink);
+  }
+  .tone-ink .btn-primary:hover {
+    background: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  .btn-outline {
+    border: 2px solid currentColor;
+  }
+  .btn-outline:hover {
+    background: var(--color-ink);
+    border-color: var(--color-ink);
+    color: var(--color-paper);
+  }
+  .tone-ink .btn-outline:hover,
+  .tone-surgical .btn-outline:hover {
+    background: var(--color-paper);
+    border-color: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  .link {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+  .link:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  .field {
+    width: 100%;
+    min-height: 48px;
+    border: 1.5px solid var(--color-ink);
+    border-radius: 2px;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    padding: 0.625rem 0.75rem;
+    font-size: 1.0625rem;
+    line-height: 1.4;
+  }
+  .field::placeholder {
+    color: var(--color-muted-on-paper);
+  }
+  .field[aria-invalid="true"] {
+    border-color: var(--color-signal);
+    border-width: 2px;
+  }
+  select.field {
+    appearance: none;
+    padding-right: 2.5rem;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -10rem;
+    z-index: 100;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    padding: 0.75rem 1rem;
+  }
+  .skip-link:focus {
+    top: 1rem;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+}
