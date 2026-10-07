@@ -7,14 +7,6 @@
       "source": "https://commons.wikimedia.org/wiki/File:Soldiers_Conduct_Casualty_Evacuation_(CASEVAC)_Training_(9784931).jpg"
     }
   },
-  "class": {
-    "width": 2400,
-    "height": 1600,
-    "credit": {
-      "author": "U.S. Space Force photo by Airman Kaitlin Castillo",
-      "source": "https://commons.wikimedia.org/wiki/File:SBD_1_rolls_out_new_TCCC_first_aid_training_(7452864).jpeg"
-    }
-  },
   "tourniquet-windlass": {
     "width": 1450,
     "height": 1620,
@@ -23,52 +15,76 @@
       "source": "https://commons.wikimedia.org/wiki/File:An_Afghan_National_Police_officer_applies_a_tourniquet_to_the_arm_of_the_demonstrator_during_first-aid_training.jpg"
     }
   },
-  "tourniquet-leg": {
-    "width": 2400,
-    "height": 1594,
+  "v-hero": {
+    "width": 1280,
+    "height": 720,
+    "video": true,
     "credit": {
-      "author": "Fred W. Baker III",
-      "source": "https://commons.wikimedia.org/wiki/File:US_Army_soldier_demonstrates_the_proper_way_to_use_a_combat_action_tourniquet,_Nov._6,_2008_(081106-D-1852B-012).jpg"
+      "author": "U.S. Navy video by Emily McCamy",
+      "source": "https://commons.wikimedia.org/wiki/File:Under_Pressure-_Corpsmen_Test_Combat_Medical_Skills_During_TCCC_Training_in_Guantanamo_Bay_(1025493).webm"
     }
   },
-  "wound-packing": {
-    "width": 2400,
-    "height": 1350,
+  "v-author": {
+    "width": 960,
+    "height": 540,
+    "video": true,
     "credit": {
-      "author": "U.S. Army 278ACR-TN-ANG by Sgt. 1st Class Arturo Guzman",
-      "source": "https://commons.wikimedia.org/wiki/File:JMTG-U_Troopers_Conduct_Realistic_Casualty_Treatment_Training_(9419025).jpg"
+      "author": "U.S. Navy video by Emily McCamy",
+      "source": "https://commons.wikimedia.org/wiki/File:Under_Pressure-_Corpsmen_Test_Combat_Medical_Skills_During_TCCC_Training_in_Guantanamo_Bay_(1025493).webm"
     }
   },
-  "pressure-bandage": {
-    "width": 1680,
-    "height": 1118,
+  "v-class": {
+    "width": 960,
+    "height": 540,
+    "video": true,
     "credit": {
-      "author": "MC1 Matthew Leistikow",
-      "source": "https://commons.wikimedia.org/wiki/File:An_Afghan_National_Army_Special_Forces_(ANASF)_soldier_demonstrates_to_Afghan_Uniformed_Police_(AUP)_officers_how_to_use_an_Israeli_bandage_to_treat_an_abdominal_wound_during_a_first_aid_class_in_the_Kajran_120202-N-JC271-052.jpg"
+      "author": "Senior Airman Norman Enriquez",
+      "source": "https://commons.wikimedia.org/wiki/File:86th_Med_Group_Medical_Simulation_Training_Center_teaches_Tier_Three_TCCC_on_Ramstein_AB_(1080p_without_graphics)_(950862).webm"
     }
   },
-  "bandage-thigh": {
-    "width": 2400,
-    "height": 1601,
+  "v-tourniquet-leg": {
+    "width": 960,
+    "height": 580,
+    "video": true,
     "credit": {
-      "author": "U.S. Army 1ACB-1CD by Spc. David Dumas",
-      "source": "https://commons.wikimedia.org/wiki/File:Tactical_Combat_Casualty_Care_Training_(8704187).jpg"
+      "author": "U.S. Marine Corps video by Lance Cpl. Nathan Saucier",
+      "source": "https://commons.wikimedia.org/wiki/File:18th_Security_Forces_TCCC_Training_(1016454).webm"
     }
   },
-  "litter-carry": {
-    "width": 2048,
-    "height": 1365,
+  "v-wound-packing": {
+    "width": 960,
+    "height": 540,
+    "video": true,
     "credit": {
-      "author": "U.S. Air Force photo by Tech. Sgt. Justin Norton",
-      "source": "https://commons.wikimedia.org/wiki/File:El_Salvador,_US,_Canada_accomplish_tactical_combat_casualty_care_training_hands-on_skills_(9130303).jpg"
+      "author": "Senior Airman Norman Enriquez",
+      "source": "https://commons.wikimedia.org/wiki/File:86th_Med_Group_Medical_Simulation_Training_Center_teaches_Tier_Three_TCCC_on_Ramstein_AB_(1080p_without_graphics)_(950862).webm"
     }
   },
-  "tourniquet-arm": {
-    "width": 2400,
-    "height": 1920,
+  "v-moulage": {
+    "width": 960,
+    "height": 540,
+    "video": true,
     "credit": {
-      "author": "Sgt. Peter Berardi",
-      "source": "https://commons.wikimedia.org/wiki/File:Applying_a_tourniquet_120315-A-JW984-151.jpg"
+      "author": "Senior Airman Norman Enriquez",
+      "source": "https://commons.wikimedia.org/wiki/File:86th_Med_Group_Medical_Simulation_Training_Center_teaches_Tier_Three_TCCC_on_Ramstein_AB_(1080p_without_graphics)_(950862).webm"
+    }
+  },
+  "v-dressing": {
+    "width": 960,
+    "height": 540,
+    "video": true,
+    "credit": {
+      "author": "U.S. Army SETAF-AF by Pfc. Tamia Lee",
+      "source": "https://commons.wikimedia.org/wiki/File:B-Roll-_Vicenza_Military_Police,_first_responders_sharpen_medical_response_skills_(990647).webm"
+    }
+  },
+  "v-scenario": {
+    "width": 960,
+    "height": 540,
+    "video": true,
+    "credit": {
+      "author": "U.S. Army SETAF-AF by Pfc. Tamia Lee",
+      "source": "https://commons.wikimedia.org/wiki/File:B-Roll-_Vicenza_Military_Police,_first_responders_sharpen_medical_response_skills_(990647).webm"
     }
   }
 }

@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import type { SiteContent } from "@/content";
 import { site } from "@/lib/site";
 import { Counter } from "./Counter";
-import { Picture } from "./Picture";
+import { LoopVideo } from "./LoopVideo";
 
 const counterResetScript = (id: string) =>
   `(function(){var e=document.getElementById(${JSON.stringify(id)});if(e&&!matchMedia("(prefers-reduced-motion: reduce)").matches)e.textContent="00:00"})()`;
@@ -12,12 +12,12 @@ export function Hero({ hero }: { hero: SiteContent["hero"] }) {
 
   return (
     <section aria-labelledby="hero-title" className="tone-ink relative isolate overflow-hidden">
-      <Picture
-        id="hero"
-        alt={hero.photo.alt}
-        sizes="100vw"
-        priority
+      <LoopVideo
+        id={hero.video.id}
+        label={hero.video.label}
+        eager
         className="absolute inset-0 -z-20 h-full w-full object-cover object-[60%_50%]"
+        controlsClassName="right-4 bottom-4 lg:right-8 lg:bottom-8"
       />
       <div className="absolute inset-0 -z-10 bg-ink/80 lg:bg-ink/70" />
 

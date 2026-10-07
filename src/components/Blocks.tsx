@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import type { Review, SiteContent } from "@/content";
 import { cn } from "@/lib/site";
+import { LoopVideo } from "./LoopVideo";
 import { Picture } from "./Picture";
 import { Section, SectionTitle } from "./Section";
 
@@ -48,13 +49,8 @@ export function Author({ data, name }: { data: SiteContent["author"]; name: stri
   return (
     <Section id="avtor" step="A" tone="ink" titleId="author-title">
       <div className="grid gap-10 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-12">
-        <div>
-          <Picture
-            id={data.photo.id}
-            alt={data.photo.alt}
-            sizes="(min-width: 1024px) 30vw, (min-width: 768px) 40vw, 100vw"
-            className="aspect-[4/5] w-full object-cover"
-          />
+        <div className="relative">
+          <LoopVideo id={data.video.id} label={data.video.label} className="aspect-[4/5] w-full object-cover" />
         </div>
         <div>
           <p className="label text-subtle">{data.title}</p>
@@ -101,13 +97,21 @@ export function Gallery({ data }: { data: SiteContent["gallery"] }) {
       <div className="grid gap-x-4 gap-y-8 md:grid-cols-12">
         {data.items.map((item, i) => (
           <figure key={item.id} className={`flex flex-col ${spans[i] ?? "md:col-span-4"}`}>
-            <div className={`min-h-0 flex-1 ${i === 1 ? "md:relative" : ""}`}>
-              <Picture
-                id={item.id}
-                alt={item.alt}
-                sizes={i === 0 ? "(min-width: 768px) 60vw, 100vw" : "(min-width: 768px) 33vw, 100vw"}
-                className={`w-full object-cover ${ratios[i] ?? "aspect-[4/3]"} ${i === 1 ? "md:absolute md:inset-0" : ""}`}
-              />
+            <div className="relative min-h-0 flex-1">
+              {item.video ? (
+                <LoopVideo
+                  id={item.video}
+                  label={item.alt}
+                  className={cn("w-full object-cover", ratios[i] ?? "aspect-[4/3]", i === 1 && "md:absolute md:inset-0")}
+                />
+              ) : (
+                <Picture
+                  id={item.id}
+                  alt={item.alt}
+                  sizes={i === 0 ? "(min-width: 768px) 60vw, 100vw" : "(min-width: 768px) 33vw, 100vw"}
+                  className={cn("w-full object-cover", ratios[i] ?? "aspect-[4/3]", i === 1 && "md:absolute md:inset-0")}
+                />
+              )}
             </div>
             <figcaption className="mt-3 text-[0.9375rem] leading-snug text-subtle">{item.caption}</figcaption>
           </figure>
