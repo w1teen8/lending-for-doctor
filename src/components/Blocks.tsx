@@ -49,9 +49,15 @@ export function Author({ data, name }: { data: SiteContent["author"]; name: stri
   return (
     <Section id="avtor" step="A" tone="ink" titleId="author-title">
       <div className="grid gap-10 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-12">
-        <div className="relative">
-          <LoopVideo id={data.video.id} label={data.video.label} className="aspect-[4/5] w-full object-cover" />
-        </div>
+        <figure>
+          <Picture
+            id={data.photo.id}
+            alt={data.photo.alt}
+            sizes="(min-width: 1024px) 30vw, (min-width: 768px) 40vw, 100vw"
+            className="aspect-[4/5] w-full object-cover"
+          />
+          <figcaption className="mt-3 text-[0.8125rem] text-subtle">{data.photo.caption}</figcaption>
+        </figure>
         <div>
           <p className="label text-subtle">{data.title}</p>
           <h2 id="author-title" className="h2 mt-4">

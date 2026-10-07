@@ -1,11 +1,8 @@
 import { useTranslations } from "next-intl";
 import type { SiteContent } from "@/content";
 import { site } from "@/lib/site";
-import { Counter } from "./Counter";
+import { counterResetScript, HeroCounter } from "./HeroCounter";
 import { LoopVideo } from "./LoopVideo";
-
-const counterResetScript = (id: string) =>
-  `(function(){var e=document.getElementById(${JSON.stringify(id)});if(e&&!matchMedia("(prefers-reduced-motion: reduce)").matches)e.textContent="00:00"})()`;
 
 export function Hero({ hero }: { hero: SiteContent["hero"] }) {
   const t = useTranslations();
@@ -28,7 +25,7 @@ export function Hero({ hero }: { hero: SiteContent["hero"] }) {
           <span />
         )}
 
-        <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_21rem] lg:items-end lg:gap-12">
+        <div className="grid gap-5 pt-6 pb-4 lg:grid-cols-[minmax(0,1fr)_21rem] lg:items-end lg:gap-12 lg:pt-20 lg:pb-8">
           <div>
             <p className="label hidden text-muted-on-ink lg:block">{hero.eyebrow}</p>
             <h1 id="hero-title" className="display lg:mt-6">
@@ -50,13 +47,14 @@ export function Hero({ hero }: { hero: SiteContent["hero"] }) {
             </div>
           </div>
 
-          <div className="tone-paper order-first flex items-start gap-3 p-3 lg:order-none lg:block lg:p-6">
-            <p className="display shrink-0 text-[2.75rem] text-signal lg:text-8xl">
-              <Counter seconds={hero.counter.seconds} id="hero-counter" />
-              <span className="sr-only">{hero.counter.srText}</span>
-            </p>
-            <script dangerouslySetInnerHTML={{ __html: counterResetScript("hero-counter") }} />
-            <p className="text-[0.8125rem] leading-snug lg:mt-4 lg:text-base">{hero.counter.caption}</p>
+          <div className="order-first lg:order-none">
+            <HeroCounter
+              seconds={hero.counter.seconds}
+              label={hero.counter.label}
+              caption={hero.counter.caption}
+              srText={hero.counter.srText}
+            />
+            <script dangerouslySetInnerHTML={{ __html: counterResetScript }} />
           </div>
         </div>
       </div>

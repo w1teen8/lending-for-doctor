@@ -20,17 +20,8 @@
     "height": 720,
     "video": true,
     "credit": {
-      "author": "U.S. Navy video by Emily McCamy",
-      "source": "https://commons.wikimedia.org/wiki/File:Under_Pressure-_Corpsmen_Test_Combat_Medical_Skills_During_TCCC_Training_in_Guantanamo_Bay_(1025493).webm"
-    }
-  },
-  "v-author": {
-    "width": 960,
-    "height": 540,
-    "video": true,
-    "credit": {
-      "author": "U.S. Navy video by Emily McCamy",
-      "source": "https://commons.wikimedia.org/wiki/File:Under_Pressure-_Corpsmen_Test_Combat_Medical_Skills_During_TCCC_Training_in_Guantanamo_Bay_(1025493).webm"
+      "author": "U.S. Air Force photo by Senior Airman Kadielle Shaw, 61st Medical Squadron",
+      "source": "https://commons.wikimedia.org/wiki/File:SBD3_clinicians_trains_in_Tactical_Combat_Casualty_Care_(984633).webm"
     }
   },
   "v-class": {
@@ -85,6 +76,14 @@
     "credit": {
       "author": "U.S. Army SETAF-AF by Pfc. Tamia Lee",
       "source": "https://commons.wikimedia.org/wiki/File:B-Roll-_Vicenza_Military_Police,_first_responders_sharpen_medical_response_skills_(990647).webm"
+    }
+  },
+  "author": {
+    "width": 1800,
+    "height": 2248,
+    "credit": {
+      "author": "U.S. Marine Corps photo by Cpl. Paley Fenner",
+      "source": "https://commons.wikimedia.org/wiki/File:KMEP_24_2_-_Tactical_Combat_Casualty_Care_Training_(8596587).jpg"
     }
   }
 }
